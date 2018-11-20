@@ -1,0 +1,15 @@
+<div class="table-responsive">
+    <table id='<%= tab_key %>_articles_table' data-tab_column_name='' data-tab_key='<%= tab_key %>' class='table table-bordered table_breaking articles_table m-b-20'>
+        <thead>
+            <tr>
+                <th class='all'><%= Article.human_attribute_name('title') %></th>
+                <th class='all'><%= Article.human_attribute_name('content') %></th>
+                <th class='all'><%= Article.human_attribute_name('status') %></th>
+                <th class='all'><%= Article.human_attribute_name('published_at') %></th>
+                <th class='all'><%= t('helpers.datatables.actions') %></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>

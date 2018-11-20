@@ -1,0 +1,56 @@
+<div class="an-page-content">
+    <div class="an-flex-center-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="an-login-container">
+                        <div class="back-to-home">
+                            <h3 class="an-logo-heading text-center wow fadeInDown">
+                                    <a class="an-logo-link" href="<%= admin_users_path %>">明治科技大學創客創業平台
+                                    <span>MCUT</span>
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="an-single-component with-shadow">
+                            <div class="an-component-header">
+                                <h6>登入</h6>
+                                <div class="component-header-right">
+                                    <p class="sign-up-link"><a href="<%= new_user_registration_path %>">註冊帳號</a></p>
+                                </div>
+                            </div>
+                            <div class="an-component-body">
+                                <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                                    <label>Email</label>
+                                    <div class="an-input-group">
+                                        <div class="an-input-group-addon"><i class="ion-ios-phone-outline"></i></div>
+                                        <%= f.input_field :email, autofocus: true, class: "an-form-control", label: false %>
+                                    </div>
+
+                                    <label>密碼</label>
+                                    <div class="an-input-group">
+                                        <div class="an-input-group-addon"><i class="ion-key"></i></div>
+                                        <%= f.input_field :password, class: "an-form-control", label: false %>
+                                    </div>
+
+                                    <div class="remembered-section">
+                                        <span class="an-custom-checkbox">
+                                            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                                        </span>
+                                        <a href="#">忘記密碼？</a>
+                                    </div>
+
+                                    <%= f.button :submit, "登入", class: "an-btn an-btn-default fluid" %>
+
+                                <% end %>
+
+                            </div> <!-- end .AN-COMPONENT-BODY -->
+                        </div> <!-- end .AN-SINGLE-COMPONENT -->
+                    </div> <!-- end an-login-container -->
+                </div>
+            </div> <!-- end row -->
+        </div>
+    </div> <!-- end an-flex-center-center -->
+</div> <!-- end .AN-PAGE-CONTENT -->
+<footer class="an-footer">
+    <p>COPYRIGHT 2018 © MCUT. ALL RIGHTS RESERVED</p>
+</footer> <!-- end an-footer -->

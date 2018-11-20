@@ -1,0 +1,29 @@
+<div class="proposal-wrapper">
+    <div class="proposal">
+        <div class="proposal-title">
+            最新提案
+            <span><%= link_to "more", "/" %></span>
+        </div>
+
+        <div class="proposal-content container">
+            <% for i in 1..6 %>
+                <div class="col-md-4 proposal-content-block">
+                    <div class="proposal-inner image">
+                        <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-3/moss1.jpg" alt="">
+                    </div>
+                    <div class="proposal-inner title">
+                        滿登登-囍·食 飯店用品計畫
+                    </div>
+                    <div class="proposal-inner category">
+                        <span>提案類別</span>
+                        <%= link_to "生活", "/" %>
+                    </div>
+                    <div class="proposal-inner content">
+                        們抽取台南在地節慶與習俗文化常見的吃食，結合工藝產品技術製做出有趣味、有故事的飯店用品組，希望讓旅客來到飯店休息時，能夠透過有趣的方式更了解當地的文化故事。產品包含：椪餅－養生組、包子－茶杯、湯圓－護手餅、煎餅－針線包、紅龜...
+                    </div>
+                </div>
+                <div class="clear"></div>
+            <% end %>
+        </div>
+    </div>
+</div>

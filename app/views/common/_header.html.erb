@@ -1,0 +1,65 @@
+<header id="header">
+    <div class="header-all">
+        <div class="header-panel"></div>
+
+        <div class="header">
+            <div class="container">
+                <div class="header_container">
+                    <div class="branding">
+                        <div>
+                            <%= link_to "明志創客創業基地", root_path %>
+                        </div>
+                    </div>
+
+                    <div class="header-main-nav">
+                        <nav class="nav-main">
+                            <div class="nav-container">
+                                <ul class="nav nav-primary" id="nav">
+                                    <li class="level0">
+                                        <%= link_to "探索", projects_path %>
+                                    </li>
+                                    <li class="level0">
+                                        <%= link_to "提案", root_path %>
+                                    </li>
+                                    <li class="level0">
+                                        <%= link_to "搜尋", root_path %>
+                                    </li>
+                                    <li class="level0 register-login">
+                                        <%= link_to "註冊/登入", user_session_path if current_user.nil? %>
+                                        <% if current_user  %>
+                                        <button type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fa fa-user-circle fa-lg"></i>
+                                            <span class="an-user-name"><%= current_user.name if current_user %></span>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <p class="an-info-count"></p>
+                                            <ul class="an-profile-list">
+                                                <li>
+                                                    <%= link_to "My Projects".html_safe, destroy_user_session_path, method: :delete %>
+                                                </li>
+                                                <li>
+                                                    <%= link_to "Favorite Projects".html_safe, destroy_user_session_path, method: :delete %>
+                                                </li>
+                                                <li>
+                                                    <%= link_to "Account Information".html_safe, destroy_user_session_path, method: :delete %>
+                                                </li>
+                                                <li>
+                                                    <%= link_to "Log Out".html_safe, destroy_user_session_path, method: :delete %>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <% end %>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="search">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

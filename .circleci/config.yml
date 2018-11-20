@@ -1,0 +1,151 @@
+# Ruby CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-ruby/ for more details
+#
+version: 2
+jobs:
+  bundle-install:
+    working_directory: ~/mcut-2018-garage
+
+    docker:
+      - image: circleci/ruby:2.5.1-node-browsers
+        environment:
+          BUNDLE_JOBS: 4
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          RAILS_ENV: test
+
+    steps:
+      - checkout
+
+      - attach_workspace:
+          at: ~/mcut-2018-garage
+
+      - restore_cache:
+          keys:
+            - bundle-{{ arch }}-{{checksum "Gemfile.lock" }}
+
+      - run:
+          name: Bundle install
+          command: bundle install
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: bundle-{{ arch }}-{{ checksum "Gemfile.lock" }}
+
+      - persist_to_workspace:
+          root: .
+          paths:
+            - vendor/bundle
+
+  test:
+    working_directory: ~/mcut-2018-garage
+
+    docker:
+      - image: circleci/ruby:2.5.1-node-browsers
+        environment:
+          BUNDLE_JOBS: 4
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          RAILS_ENV: test
+
+     - image: mariadb:10.3.10-bionic-ram
+          MYSQL_ROOT_PASSWORD: 'root'
+          MYSQL_DATABASE: mcut-2018-garage_test
+
+    steps:
+      -checkout
+
+      - attach_workspace:
+          at: ~/mcut-2018-garage
+
+      - run:
+          name: Waiting for Mariadb to be ready
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+
+      - run:
+          name: Setup the environment
+          command: cp .env.circleci .env
+
+      - run:
+          name: Setup database configuration
+          command: cp config/database.yml.circleci config/database.yml
+
+      - run:
+          name: Bundle install
+          command: bundle install
+
+      - run:
+          name: Create test DB
+          command: RAILS_ENV=test bundle exec rake db:create db:schema:load --trace
+
+      - run:
+          name: DB migration
+          command: RAILS_ENV=test bundle exec rake db:migrate
+
+      - run:
+          name: Create seeds
+          command: RAILS_ENV=test bundle exec rake db:seed
+
+
+      - run:
+          name: Run unit tests
+
+  build:
+    working_directory: ~/mcut-2018-garage
+
+    docker:
+      -image: circleci/ruby:2.5.1-node-browsers
+       environment:
+         RAILS_ENV: test
+
+
+    steps:
+      - checkout
+
+      - setup_remote_docker
+
+      - run:
+          name: Login Docker hub
+          command: docker login -u $DOCKER_USER -p $DOCKRE_PASSWORD
+
+      - run:
+          name:
+          docker build -t angtsusiong/mcut-2018-garage:
+
+
+
+    docker:
+       - image: circleci/ruby:2.5.1-node-browsers
+         environment:
+           BUNDLE_JOBS: 4
+           BUNDLE_RETRY: 3
+           BUNDLE_PATH: vendor/bundle
+           RAILS_ENV: test
+
+      - image: mariadb:10.3.10-bionic-ram
+          MYSQL_ROOT_PASSWORD: 'root'
+          MYSQL_DATABASE: mcut-2018-garage_test
+
+    steps:
+      - checkout
+
+      - attach_workspace:
+          at: ~/mcut-2018-garage
+
+      - run:
+          name: Bundle install
+          command: bundle install
+
+      - run:
+          name: Create test DB
+          command: RAILS_ENV=test bundle exec rake db:create db:schema:load --trace
+
+      - run:
+          name: DB migration
+          command: RAILS_ENV=test bundle exec rake db:migrate
+
+      - run:
+          name: Create seeds
+          command: RAILS_ENV=test bundle exec rake db:seed

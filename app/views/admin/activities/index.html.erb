@@ -1,0 +1,17 @@
+<div class="an-body-topbar wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+    <div class="an-page-title">
+        <h2>
+            <%= t('helpers.page_title.index', model: Activity.model_name.human) %>
+        </h2>
+    </div>
+</div>
+
+<div>
+    <%= render 'admin/activities/index_datatables' %>
+</div>
+
+
+<% content_for :post_scripts do %>
+    <%= javascript_include_tag 'admin/activities' %>
+    <%= javascript_include_tag 'admin/activities_datatables' %>
+<% end %>

@@ -1,0 +1,82 @@
+<div class="panel panel-default an-sidebar-search filter-condition-panel">
+
+        <div class="panel-heading" role="tab">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" href="#articles_search_panel" data-toggle="collapse" 
+                    data-parent="#accordion" aria-expanded="false" aria-controls="articles_search_panel">
+            <%= t('helpers.form.search_filter_block') %>
+                </a>
+            </h4>
+        </div>
+
+        <div id="articles_search_panel" class="panel-collapse collapse" role="search panel">
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label class='control-label'><%= t('helpers.form.keyword_search_label') %></label>
+                    </div>
+                    <div class="col-sm-10">
+                        <input type='text' id='keyword_search' placeholder="<%= t('helpers.form.keyword_search') %>"
+                                                               class='an-form-control no-redius border-bottom m-0 text_color'>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+    
+                <div class='form-group'>
+                    <div class="col-sm-2">
+                        <label class='control-label'><%= Article.human_attribute_name('title') %></label>
+                    </div>
+                    <div class='col-sm-10'>
+                        <input type='text' name='title' placeholder='<%= t('helpers.form.placeholder', column: Article.human_attribute_name('title')) %>'
+                            class='an-form-control no-redius border-bottom m-0 text_color filter-title filter-condition'>
+                    </div>
+                    <div class='clear'></div>
+                </div>
+
+
+                <div class='form-group'>
+                    <div class="col-sm-2">
+                        <label class='control-label'><%= Article.human_attribute_name('content') %></label>
+                    </div>
+                    <div class='col-sm-10'>
+                        <input type='text' name='content' placeholder='<%= t('helpers.form.placeholder', column: Article.human_attribute_name('content')) %>'
+                            class='an-form-control no-redius border-bottom m-0 text_color filter-content filter-condition'>
+                    </div>
+                    <div class='clear'></div>
+                </div>
+
+
+                <div class='form-group'>
+                    <div class="col-sm-2">
+                        <label class='control-label'><%= Article.human_attribute_name('status') %></label>
+                    </div>
+                    <div class='col-sm-10'>
+                        <%= simple_form_for([:admin, Article.new], url: '/admin/articles/') do | f | %>
+                            <%= f.input_field :status, name: 'status', collection: Article.statuses_i18n,
+                                class: 'an-form-control select2 filter-status filter-select-condition', include_blank: true, selected: nil %>
+                        <% end %>
+                    </div>
+                    <div class='clear'></div>
+                </div>
+
+
+    
+
+                <div class="form-group pull-right">
+                    <div class="col-sm-12">
+                        <button class="btn btn-default reset-button">
+                            <%= t('button.reset') %>
+                        </button>
+                        <button class="btn btn-info filter-button">
+                            <%= t('button.filter') %>
+                        </button>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+            </div>
+        </div>
+
+</div>

@@ -1,0 +1,32 @@
+.user_filter_wrapper {
+    padding: 20px;
+}
+
+.user_filter_input {
+    div {
+        margin: 10px 0;
+    }
+
+    input {
+        width: 400px;
+    }
+}
+
+.user_filter_checkbox {
+    margin: 10px 0;
+}
+
+.user_filter_check {
+    display: inline-block;    
+}
+
+.user_info_wrapper, .user_bank_account_wrapper, .user_asset_wrapper {
+    td {
+        border-top: 0!important;
+    }
+}
+
+.user_bank_account_wrapper, .user_asset_wrapper {
+    border-top: 1px solid #ddd;
+    padding-top: 18px;
+}

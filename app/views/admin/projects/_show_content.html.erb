@@ -1,0 +1,149 @@
+<% readonly = (defined? readonly) ? readonly : false -%>
+<%= stylesheet_link_tag 'project_examine', media: 'all' %>
+
+<%= simple_form_for([:admin, @project], url: '/admin/projects/'+@project.id.to_s, remote: true, html: { multipart: true }) do | f | %>
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">基本資料</div>
+    </div>
+    <div class="panel-body">
+      <div class="col-sm-2">
+        <b>
+          <ul style="list-style-type:none;padding-left: 0em;padding-right: 0em">
+            <li style="min-width: fit-content;max-width: fit-content;line-height: 250%"><a style="color: grey">提案分類</a></li>
+            <li style="min-width: fit-content;max-width: fit-content;line-height: 250%"><a style="color: grey">提案人</a></li>
+            <li style="min-width: fit-content;max-width: fit-content;line-height: 250%"><a style="color: grey">提案狀態</a></li>
+            <li style="min-width: fit-content;max-width: fit-content;line-height: 250%"><a style="color: grey">建立時間</a></li>
+            <li style="min-width: fit-content;max-width: fit-content;line-height: 250%"><a style="color: grey">更新時間</a></li>
+          </ul>
+        </b>
+      </div>
+
+      <div class="col-sm-10">
+        <ul style="list-style-type:none;padding-left: 2em;">
+          <li style="min-width: fit-content;line-height: 250%;"><a><%= @project.project_category.name %></a></li>
+          <li style="min-width: fit-content;line-height: 250%;"><a><%= @project.projects_users.find_by(typing: 'leader').user.name %></a></li>
+          <li style="min-width: fit-content;line-height: 250%;"><a><%= @project.status_i18n %></a></li>
+          <li style="min-width: fit-content;line-height: 250%;"><a><%= @project.created_at&.strftime('%F %T') %></a></li>
+          <li style="min-width: fit-content;line-height: 250%;"><a><%= @project.updated_at&.strftime('%F %T') %></a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+  <div class="an-bootstrap-custom-tab">
+    <% @act = Activity.find( @project.activity_id ) %>
+    <% @tab_index = @act.steps.first.id %>
+    <div class="an-tab-control">
+      <ul class="nav nav-tabs text-left" role="tablist">
+          <% @act.steps.each do |st| %>
+          <li role='presentation' class='tab tab-control <%= 'active' if st.id == @tab_index %> step_tab_<%= st.id.to_s %>' id='step_tab_<%= st.id.to_s %>'>
+              <%= link_to st.name, change_tab_admin_project_path(st.id), method: :post %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="tab-content">
+      <% @act.steps.each do |st| %>
+        <div role='tabpanel' class='tab-pane fade in <%= 'active' if st.id == @tab_index %> step_tab_<%= st.id.to_s %>'>
+          <% st.requirements.each do |req| %>
+            <div class="req-unit">
+              <div class="req-name">
+                <%= req.name %>
+              </div>
+
+              <% if req.datatype == 'text' %>
+                <div class="req-text">
+                  <%= @project.project_details.find_by(requirement_id: req.id).content %>
+                </div>
+              <% elsif req.datatype == 'picture' %>
+                <div class="req-pic">
+                  <%= @project.project_details.find_by(requirement_id: req.id).content %>
+                </div>
+              <% elsif req.datatype == 'video' %>
+                <div class="req-video">
+                  <%= @project.project_details.find_by(requirement_id: req.id).content %>
+                </div>
+              <% end %>
+
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  </div>
+
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">審核要求</h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="checkbox">
+                        <label class="radio-inline">
+                            <input type="radio" name="optradio">通過
+                        </label>
+
+                        <label class="radio-inline">
+                            <input type="radio" name="optradio">駁回
+                        </label><br>
+                    </div>
+
+                    <h5>
+                        意見回饋
+                    </h5><br>
+                    <%= f.simple_fields_for :project_verifications do |ver| %>
+                        <%= ver.input_field :feedback, as: :text, class: 'an-form-control ' %>
+                    <% end %>
+
+                </div>
+            </div>
+        </div>
+
+        <div class='row'>
+            <div class='col-sm-12'>
+                <%= f.submit t('button.submit_examining'), class: 'btn btn-primary btn btn-primary m-b-20 m-l-15' unless readonly %>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                審查委員
+            </h3>
+        </div>
+            <div class="panel-body">
+            <div class='form-group'>
+        <div class='col-sm-12 '>
+            <div id='requirements'>
+                <%= f.simple_fields_for :projects_users do |exam| %>
+                    <%= render 'projects_user_fields', :f => exam if ['examiner', 'the_examiner'].include? exam.object.typing %>
+                <% end %>
+                    <%= link_to_add_association '新增', f, :projects_users, class: 'btn btn-success' %>
+
+            </div>
+            </div>
+            </div>
+            </div>
+    </div>
+
+
+
+
+<%= hidden_field_tag 'project_id', @project.id %>
+<%= content_for :post_scripts do %>
+<%= javascript_include_tag 'project_details' %>
+<script>
+   </script>
+<% end %>
+<% end %>

@@ -1,0 +1,15 @@
+
+<% if @badge.errors.full_messages.blank? %>
+    swal('<%= t('helpers.form.create_success', model: Badge.model_name.human) %>', '', 'success')
+        .then(function(){
+            window.location.href = '<%= admin_badges_url(@badge, ignore_set_navigation: true) %>';
+        });
+<% else %>
+    $( "span.full_error" ).remove();
+
+    swal('<%= t('helpers.form.create_error', model: Badge.model_name.human) %>', '<%= @badge.errors.full_messages.join('\n') %>', 'error');
+
+    <% @badge.errors.messages.each do |message| %>
+        $( "<span class='error full_error'><%= message[1].join('; ') %></span>" ).insertAfter( "#badge_<%= message[0].to_s %>" );
+    <% end %>
+<% end %>

@@ -1,0 +1,184 @@
+<div class="an-sidebar-nav js-sidebar-toggle-with-click collapse">
+    <div class="an-sidebar-nav">
+        <ul class="an-main-nav">
+
+            <li class="an-nav-item">
+                <a class=" js-show-child-nav" href="#">
+                    <i class="fa fa-user"></i>
+                    <span class="nav-title">Dashboard
+                        <span class="an-arrow-nav">
+                            <i class="fa fa-arrow-circle-o-down"></i>
+                        </span>
+                    </span>
+                </a>
+            </li>
+
+            <li class="an-nav-item">
+                <a class=" js-show-child-nav" href="#">
+                    <i class="fa fa-user"></i>
+                    <span class="nav-title">會員
+                        <span class="an-arrow-nav">
+                            <i class="fa fa-arrow-circle-o-down"></i>
+                        </span>
+                    </span>
+                </a>
+                <ul class="an-child-nav js-open-nav">
+                    <li class="an-nav-item">
+                        <%= link_to admin_users_path do %>
+                            會員管理
+                        <% end %>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="an-nav-item">
+                <a class=" js-show-child-nav" href="#">
+                    <i class="fa fa-cogs"></i>
+                    <span class="nav-title">提案
+                        <span class="an-arrow-nav">
+                            <i class="fa fa-arrow-circle-o-down"></i>
+                        </span>
+                    </span>
+                </a>
+                <ul class="an-child-nav js-open-nav">
+                    <li class="an-nav-item">
+                        <%= link_to admin_projects_path do %>
+                            提案管理
+                        <% end %>
+                    </li>
+                    <li class="an-nav-item">
+                        <%= link_to admin_project_categories_path do %>
+                            提案類別管理
+                        <% end %>
+                    </li>
+                    <li class="an-nav-item">
+                        <%= link_to admin_badges_path do %>
+                            認證徽章管理
+                        <% end %>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="an-nav-item">
+                <a class=" js-show-child-nav" href="#">
+                    <i class="fa fa-cogs"></i>
+                    <span class="nav-title">活動
+                        <span class="an-arrow-nav">
+                            <i class="fa fa-arrow-circle-o-down"></i>
+                        </span>
+                    </span>
+                </a>
+                <ul class="an-child-nav js-open-nav">
+                    <li class="an-nav-item">
+                        <%= link_to admin_activities_path do %>
+                            活動管理
+                        <% end %>
+                    </li>
+                    <li class="an-nav-item">
+                        <%= link_to admin_steps_path do %>
+                            流程管理
+                        <% end %>
+                    </li>
+                    <li class="an-nav-item">
+                        <%= link_to admin_requirements_path do %>
+                            條件限制管理
+                        <% end %>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="an-nav-item">
+                <a class=" js-show-child-nav" href="#">
+                    <i class="fa fa-cogs"></i>
+                    <span class="nav-title">創客情報
+                        <span class="an-arrow-nav">
+                            <i class="fa fa-arrow-circle-o-down"></i>
+                        </span>
+                    </span>
+                </a>
+                <ul class="an-child-nav js-open-nav">
+                    <li class="an-nav-item">
+                        <%= link_to admin_articles_path do %>
+                            創客情報管理
+                        <% end %>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="an-nav-item">
+                <a class=" js-show-child-nav" href="#">
+                    <i class="fa fa-cogs"></i>
+                    <span class="nav-title">相關資源
+                        <span class="an-arrow-nav">
+                            <i class="fa fa-arrow-circle-o-down"></i>
+                        </span>
+                    </span>
+                </a>
+                <ul class="an-child-nav js-open-nav">
+                    <li class="an-nav-item">
+                        <%= link_to admin_related_resources_path do %>
+                            相關資源管理
+                        <% end %>
+                    </li>
+                    <li class="an-nav-item">
+                        <%= link_to do %>
+                            資源類別管理
+                        <% end %>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="an-nav-item">
+                <a class=" js-show-child-nav" href="#">
+                    <i class="fa fa-cogs"></i>
+                    <span class="nav-title">頁面管理
+                        <span class="an-arrow-nav">
+                            <i class="fa fa-arrow-circle-o-down"></i>
+                        </span>
+                    </span>
+                </a>
+                <ul class="an-child-nav js-open-nav">
+                    <li class="an-nav-item">
+                        <%= link_to admin_slides_path do %>
+                            首頁輪播管理
+                        <% end %>
+                    </li>
+                    <li class="an-nav-item">
+                        <%= link_to admin_pages_path do %>
+                            基地簡介管理
+                        <% end %>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="an-nav-item">
+                <a class=" js-show-child-nav" href="#">
+                    <i class="fa fa-line-chart"></i>
+                    <span class="nav-title">系統管理
+                        <span class="an-arrow-nav">
+                            <i class="fa fa-arrow-circle-o-down"></i>
+                        </span>
+                    </span>
+                </a>
+                <ul class="an-child-nav js-open-nav">
+                    <li class="an-nav-item">
+                        <%= link_to admin_versions_path do %>
+                            操作記錄
+                        <% end %>
+                    </li>
+                    <li class="an-nav-item">
+                        <%= link_to  do %>
+                            角色列表
+                        <% end %>
+                    </li>
+                    <li class="an-nav-item">
+                        <%= link_to  do %>
+                            系統帳號列表
+                        <% end %>
+                    </li>
+                </ul>
+            </li>
+
+        </ul> <!-- end .AN-MAIN-NAV -->
+    </div> <!-- end .AN-SIDEBAR-NAV -->
+</div> <!-- end .AN-SIDEBAR-NAV -->

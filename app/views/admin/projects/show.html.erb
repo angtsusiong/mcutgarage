@@ -1,0 +1,28 @@
+<div class="an-body-topbar wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+    <b class="an-page-title">
+        <h1>
+            <%= t('helpers.page_title.examine', model: t('models.project')) %>
+        </h1></b>
+    </div>
+</div>
+
+<div>
+    <div class="panel">
+
+        <div class="panel-heading">
+            <div class="m-portlet__head-caption"><h3 class="m-portlet__head-text" style="padding-left: 2em">
+                <%= @project.name %>
+            </h3></div>
+            <div class="m-portlet__head-tools">
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <%= render 'show_content' %>
+        </div>
+    </div>
+</div>
+<% content_for :post_scripts do %>
+<%= javascript_include_tag 'admin/projects' %>
+<%= javascript_include_tag 'admin/projects_datatables' %>
+<% end %>

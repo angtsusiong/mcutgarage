@@ -1,0 +1,23 @@
+<div class="related-resources-wrapper">
+    <div class="related-resources container">
+        <div class="related-resources-title">
+            <h2>相關資源</h2>
+        </div>
+        
+        <div class="related-resources-content">
+            <% for i in 1..4 do %>
+                <div class="related-resources-content-title">
+                    圖書資源
+                </div>
+
+                <div class="related-resources-content-content">
+                    <ul>
+                        <li><%= link_to "圖書館開館時間", "#" %></li>
+                        <li><%= link_to "國家圖書館", "#" %></li>
+                        <li><%= link_to "臺灣博碩士論文知識加值系統網", "#" %></li>
+                    </ul>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

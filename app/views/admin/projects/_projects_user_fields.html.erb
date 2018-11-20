@@ -1,0 +1,11 @@
+<div class='nested-fields col-sm-10'>
+    <div class="col-sm-5 m-b-20">
+    <%= f.input_field :user_id, collection: User.includes(:roles).where(roles: {name: 'examiner'}), class: ' select an-form-control  select2 ', include_blank: false %>
+    </div>
+    <div class="col-sm-5 m-b-20">
+    <%= f.input_field :typing, collection: ['examiner', 'the_examiner'], class: 'an-form-control select2', include_blank: false %>
+    </div>
+    <div class="col-sm-2 m-b-20">
+      <%= link_to_remove_association '移除', f, class: 'btn btn-danger ' %>
+    </div>
+</div>

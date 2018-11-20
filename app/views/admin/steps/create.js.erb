@@ -1,0 +1,15 @@
+
+<% if @step.errors.full_messages.blank? %>
+    swal('<%= t('helpers.form.create_success', model: Step.model_name.human) %>', '', 'success')
+        .then(function(){
+            window.location.href = '<%= admin_steps_url(@step, ignore_set_navigation: true) %>';
+        });
+<% else %>
+    $( "span.full_error" ).remove();
+
+    swal('<%= t('helpers.form.create_error', model: Step.model_name.human) %>', '<%= @step.errors.full_messages.join('\n') %>', 'error');
+
+    <% @step.errors.messages.each do |message| %>
+        $( "<span class='error full_error'><%= message[1].join('; ') %></span>" ).insertAfter( "#step_<%= message[0].to_s %>" );
+    <% end %>
+<% end %>

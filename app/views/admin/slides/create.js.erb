@@ -1,0 +1,15 @@
+
+<% if @slide.errors.full_messages.blank? %>
+    swal('<%= t('helpers.form.create_success', model: Slide.model_name.human) %>', '', 'success')
+        .then(function(){
+            window.location.href = '<%= admin_slides_url(@slide, ignore_set_navigation: true) %>';
+        });
+<% else %>
+    $( "span.full_error" ).remove();
+
+    swal('<%= t('helpers.form.create_error', model: Slide.model_name.human) %>', '<%= @slide.errors.full_messages.join('\n') %>', 'error');
+
+    <% @slide.errors.messages.each do |message| %>
+        $( "<span class='error full_error'><%= message[1].join('; ') %></span>" ).insertAfter( "#slide_<%= message[0].to_s %>" );
+    <% end %>
+<% end %>

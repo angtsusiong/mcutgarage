@@ -1,0 +1,16 @@
+<div class="table-responsive">
+    <table id='<%= tab_key %>_requirements_table' data-tab_column_name='' data-tab_key='<%= tab_key %>' class='table table-bordered table_breaking requirements_table m-b-20'>
+        <thead>
+            <tr>
+                <th class='all'><%= Requirement.human_attribute_name('name') %></th>
+                <th class='all'><%= Requirement.human_attribute_name('datatype') %></th>
+                <th class='all'><%= Requirement.human_attribute_name('desc') %></th>
+                <th class='all'><%= Requirement.human_attribute_name('minimum') %></th>
+                <th class='all'><%= Requirement.human_attribute_name('maximum') %></th>
+                <th class='all'><%= t('helpers.datatables.actions') %></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>

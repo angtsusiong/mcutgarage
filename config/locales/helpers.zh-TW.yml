@@ -1,0 +1,101 @@
+zh-TW:
+
+  helpers:
+    sign:
+      sign_in: 登入
+      log_out: 登出
+      sign_up: 註冊
+      forgot_psw: 忘記密碼？
+      send_reset_psw_instructions: 傳送密碼重置訊息
+    is: "%{model}: "
+    the: "%{model}: %{item}"
+    page_title:
+      index: "%{model}列表"
+      examine: "%{model}審核"
+      management: "%{model}管理"
+      messages: "%{model} %{item}: 訊息"
+      logs: "%{model}紀錄"
+      sources: "%{model}來源"
+      new: 新增%{model}
+      edit: 編輯%{model}
+      edit_item: "編輯%{model}: %{item}"
+      show: 檢視%{model}
+    column_name:
+      name: 提案名稱
+      project_category: 提案分類
+      leader: 提案人
+      updated_at: 最後更新
+      status: 提案狀態
+
+    select:
+      choose: "選擇 %{model}"
+      prompt: 請選擇
+      true_option: 是
+      false_option: 否
+    submit:
+      create: 新增%{model}
+      submit: 儲存%{model}
+      save: 儲存
+      update: 更新%{model}
+    form:
+      search_filter_block: 篩選條件
+      keyword_search_label: 關鍵字
+      keyword_search: 請輸入關鍵字查詢
+      placeholder: 請輸入%{column}
+      start_at: 請輸入開始時間
+      end_at: 請輸入結束時間
+      start_number: 請輸入開始數值
+      end_number: 請輸入結束數值
+      update_success: 更新 %{model} 成功
+      update_error: 更新 %{model} 時發生錯誤
+      create_success: 新增 %{model} 成功
+      create_error: 新增 %{model} 時發生錯誤
+      destroy_success: 刪除 %{model} 成功
+      destroy_error: 刪除 %{model} 時發生錯誤
+      disable_success: 停用 %{model} 成功
+      disable_error: 停用 %{model} 時發生錯誤
+      resume_success: 恢復 %{model} 成功
+      resume_error: 恢復 %{model} 時發生錯誤
+    datatables:
+      actions: 操作
+      length_menu_all: 全部
+      tab_all: 全部
+      select_all: 全部選擇
+      select_none: 取消選擇
+      delete: 刪除
+    ajax:
+      default_error: 送出資料發生錯誤，請稍後再試或洽詢系統管理員。
+
+  support:
+    array:
+      last_word_connector: ", 和 "
+      two_words_connector: " 和 "
+      words_connector: ", "
+
+  datatables:
+    info_empty: 找不到符合的資料
+    zero_records: 找不到符合的資料。
+    length_menu: "每頁顯示 _MENU_ 筆資料"
+    processing: 搜尋中，請稍後，如久無反應請重新整理頁面。
+    previous: 上一頁
+    next: 下一頁
+    last: 最末頁
+    first: 第一頁
+    info: "顯示 _START_ 到 _END_ 筆，共 _TOTAL_ 筆資料"
+    info_filtered: "(從全部 _MAX_ 筆資料中查詢的結果)"
+    empty_table: 表格中沒有可用的資料
+    sort_ascending: 升冪排序
+    sort_descending: 降冪排序
+    click_to_select: "可以點擊選取下列資料"
+    selected_rows: "您選擇了 %d 筆資料"
+    only_one_row_selected: "您選擇了 1 筆資料"
+
+  form_inputs:
+    hints:
+      upload_size_limit: 每筆大小不得超過 5MB
+
+  fileupload:
+    select_file: 選擇檔案...
+    cancel: 取消
+    start: 上傳
+    destroy: 刪除

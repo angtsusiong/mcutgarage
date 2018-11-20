@@ -1,0 +1,21 @@
+<div class="table-responsive">
+    <table id='<%= tab_key %>_users_table' data-tab_column_name='' data-tab_key='<%= tab_key %>' class='table table-bordered table_breaking users_table m-b-20'>
+        <thead>
+            <tr>
+                <th class='all'><%= User.human_attribute_name('email') %></th>
+                <th class='all'><%= User.human_attribute_name('remember_created_at') %></th>
+                <th class='all'><%= User.human_attribute_name('sign_in_count') %></th>
+                <th class='all'><%= User.human_attribute_name('current_sign_in_at') %></th>
+                <th class='all'><%= User.human_attribute_name('last_sign_in_at') %></th>
+                <th class='all'><%= User.human_attribute_name('current_sign_in_ip') %></th>
+                <th class='all'><%= User.human_attribute_name('last_sign_in_ip') %></th>
+                <th class='all'><%= User.human_attribute_name('phone') %></th>
+                <th class='all'><%= User.human_attribute_name('self_intro') %></th>
+                <th class='all'><%= User.human_attribute_name('name') %></th>
+                <th class='all'><%= t('helpers.datatables.actions') %></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>

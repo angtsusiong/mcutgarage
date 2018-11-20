@@ -1,0 +1,17 @@
+<div class="an-body-topbar wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+    <div class="an-page-title">
+        <h2>
+            <%= t('helpers.page_title.index', model: Article.model_name.human) %>
+        </h2>
+    </div>
+</div>
+
+<div>
+    <%= render 'articles/index_datatables' %>
+</div>
+
+
+<% content_for :post_scripts do %>
+    <%= javascript_include_tag 'articles' %>
+    <%= javascript_include_tag 'articles_datatables' %>
+<% end %>

@@ -1,0 +1,37 @@
+zh-TW:
+
+  button:
+    add: 新增
+    add_image: 增加圖片
+    back: 返回
+    batch_destroy: 批次刪除
+    cancel: 取消
+    callback: 回應
+    create_period_table: 產生分期表格
+    complete: 完成
+    delete_table: 刪除表格內容
+    delete: 刪除
+    destroy: 刪除
+    destroy_confirm: "確認要刪除 %{message} 的 %{model} 嗎？"
+    download: 下載
+    download_print: 下載/列印%{model}明細
+    edit: 編輯
+    filter: 查詢
+    import: 匯入
+    maintenance_category_management: 修繕類別管理
+    new: 新增%{model}
+    prompt_feedback: 邀請顧客進行評價回填
+    reset: 清空
+    remove_image: 移除圖片
+    reservation_management: 管理訂單狀態
+    save: 儲存
+    search: 搜尋
+    send_message: 送出訊息
+    show: 檢視
+    skip: 跳過
+    submit_examining: 送出審核結果
+    update: 更新
+    update_status: 變更狀態
+  datatables:
+    next: 下ㄧ頁
+    previous: 上一頁

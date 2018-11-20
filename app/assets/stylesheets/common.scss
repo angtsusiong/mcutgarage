@@ -1,0 +1,311 @@
+
+.no-padding{
+    padding: 0!important;
+}
+/* display */
+
+.d_show {
+    display: block;
+}
+
+.d_ib {
+    display: inline-block;
+}
+
+.d_inline {
+    display: inline;
+}
+
+.d_none {
+    display: none;
+}
+
+.d_fl {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.d-fl-ai {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.d-fl-sb {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.m-b-20{
+    margin-bottom: 20px!important;
+}
+.m-r-10{
+    margin-right: 10px!important;
+}
+.p-15{
+    padding: 15px!important;
+}
+.nav-tabs{
+    li{
+        a{
+            padding: 7px!important;
+        }
+    }
+}
+.an-tab-control .nav-tabs > li.active a{
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+}
+.dataTables_wrapper {
+    .dataTables_paginate {
+        .paginate_button {
+            padding: 0px!important;
+        }
+    }
+}
+
+.dataTables_info{
+    margin-bottom: 10px!important;
+}
+
+
+@media screen and (max-width:768px) {
+    .mb_d_show {
+        display: block;
+    }
+    .mb_d_none {
+        display: none;
+    }
+}
+
+
+/* text */
+
+.t-center {
+    text-align: center;
+}
+
+.t-right {
+    text-align: right;
+}
+
+.t-left {
+    text-align: left;
+}
+
+@for $ls from 1 through 30 {
+    .l-s-#{$ls} {
+        letter-spacing: #{$ls}px;
+    }
+}
+
+@for $fz from 0 through 2 {
+    .font-#{$fz*5+20} {
+        font-size: #{$fz*5+20}px;
+    }
+}
+
+@for $fz from 1 through 50 {
+    .font-#{$fz} {
+        font-size: #{$fz}px;
+    }
+}
+
+.f-bold {
+    font-weight: bold;
+}
+
+
+/* color */
+
+
+/* margin */
+@for $m from 0 through 200 {
+    .m-#{$m} {
+        margin: #{$m}px;
+    }
+    .m-t-#{$m} {
+        margin-top: #{$m}px;
+    }
+    .m-b-#{$m} {
+        margin-bottom: #{$m}px;
+    }
+    .m-r-#{$m} {
+        margin-right: #{$m}px;
+    }
+    .m-l-#{$m} {
+        margin-left: #{$m}px;
+    }
+    .m-lr-#{$m} {
+        margin-right: #{$m}px;
+        margin-left: #{$m}px;
+    }
+    .m-tb-#{$m} {
+        margin-top: #{$m}px;
+        margin-bottom: #{$m}px;
+    }
+}
+
+/* padding */
+@for $p from 0 through 200 {
+    .p-#{$p} {
+        padding: #{$p}px;
+    }
+    .p-t-#{$p} {
+        padding-top: #{$p}px;
+    }
+    .p-b-#{$p} {
+        padding-bottom: #{$p}px;
+    }
+    .p-l-#{$p} {
+        padding-left: #{$p}px;
+    }
+    .p-r-#{$p} {
+        padding-right: #{$p}px;
+    }
+    .p-lr-#{$p} {
+        padding-right: #{$p}px;
+        padding-left: #{$p}px;
+    }
+    .p-tb-#{$p} {
+        padding-top: #{$p}px;
+        padding-bottom: #{$p}px;
+    }
+}
+
+
+// border
+@for $b from 1 through 10 {
+    .b-#{$b} {
+        border: #{$b}px solid #000;
+    }
+    .b-t-#{$b} {
+        border-top: #{$b}px solid #000;
+    }
+    .b-b-#{$b} {
+        border-bottom: #{$b}px solid #000;
+    }
+    .b-l-#{$b} {
+        border-left: #{$b}px solid #000;
+    }
+    .b-r-#{$b} {
+        border-right: #{$b}px solid #000;
+    }
+    .b-lr-#{$b} {
+        border-right: #{$b}px solid #000;
+        border-left: #{$b}px solid #000;
+    }
+    .b-tb-#{$b} {
+        border-top: #{$b}px solid #000;
+        border-bottom: #{$b}px solid #000;
+    }
+}
+
+// float
+.f-l {
+    float: left;
+}
+
+.f-r {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+// pw_request, login and register, mobile_authenticate, users/coupon
+.error-message {
+    display: none;
+    letter-spacing: 6px;
+    color: crimson;
+    background-color: #e59694;
+    // border-color: #adadad;
+    width: 100%;
+}
+
+.error-message:hover {
+    color: crimson;
+}
+
+.page-title {
+    font-size: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid black;
+    font-family: 'Malayalam MN', 'Heiti TC', -apple-system, 'Microsoft JhengHei', Helvetica, Arial, sans-serif;
+}
+
+.table-noborder {
+    >tbody>tr>th,
+    >tfoot>tr>td,
+    >tfoot>tr>th,
+    >thead>tr>td,
+    >thead>tr>th,
+    >tbody>tr>td {
+        border: 0;
+    }
+}
+
+.fulljustify {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    -ms-text-justify: inter-ideograph;
+    -moz-text-align-last: justify;
+    -webkit-text-align-last: justify;
+    &:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+@for $fz from 0 through 2 {
+    .font-#{$fz*5+20} {
+        font-size: #{$fz*5+20}px;
+    }
+}
+
+@for $lh from 1 through 10 {
+    .l-h-#{$lh} {
+        line-height: #{$lh} !important;
+    }
+}
+
+@for $br from 1 through 20 {
+    .b-r-#{$br} {
+        border-radius: #{$br}px;
+    }
+}
+
+.f1{float:left;margin-left:5px;margin-right:5px;width:calc(5% - 10px)}
+.f2{float:left;margin-left:5px;margin-right:5px;width:calc(10% - 10px)}
+.f3{float:left;margin-left:5px;margin-right:5px;width:calc(15% - 10px)}
+.f4{float:left;margin-left:5px;margin-right:5px;width:calc(20% - 10px)}
+.f5{float:left;margin-left:5px;margin-right:5px;width:calc(25% - 10px)}
+.f6{float:left;margin-left:5px;margin-right:5px;width:calc(30% - 10px)}
+.f7{float:left;margin-left:5px;margin-right:5px;width:calc(35% - 10px)}
+.f8{float:left;margin-left:5px;margin-right:5px;width:calc(40% - 10px)}
+.f9{float:left;margin-left:5px;margin-right:5px;width:calc(45% - 10px)}
+.f10{float:left;margin-left:5px;margin-right:5px;width:calc(50% - 10px)}
+.f11{float:left;margin-left:5px;margin-right:5px;width:calc(55% - 10px)}
+.f12{float:left;margin-left:5px;margin-right:5px;width:calc(60% - 10px)}
+.f13{float:left;margin-left:5px;margin-right:5px;width:calc(65% - 10px)}
+.f14{float:left;margin-left:5px;margin-right:5px;width:calc(70% - 10px)}
+.f15{float:left;margin-left:5px;margin-right:5px;width:calc(75% - 10px)}
+.f16{float:left;margin-left:5px;margin-right:5px;width:calc(80% - 10px)}
+.f17{float:left;margin-left:5px;margin-right:5px;width:calc(85% - 10px)}
+.f18{float:left;margin-left:5px;margin-right:5px;width:calc(90% - 10px)}
+.f19{float:left;margin-left:5px;margin-right:5px;width:calc(95% - 10px)}
+.f20{float:left;margin-left:5px;margin-right:5px;width:calc(100% - 10px)}
+
+h4 span { font-size: 14px; }
+
+.full_error{
+  color: #ff0000;
+}
+

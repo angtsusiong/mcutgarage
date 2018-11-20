@@ -1,0 +1,5 @@
+<div class='nested-fields'>
+    <%= f.input_field :step_id, collection: Step.all, class: 'an-form-control  select2', include_blank: false %>
+    <%= f.input_field :priority, class: 'an-form-control ', include_blank: false %>
+    <%= link_to_remove_association "remove step", f %>
+</div>

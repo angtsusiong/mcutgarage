@@ -1,0 +1,54 @@
+<% readonly = (defined? readonly) ? readonly : false -%>
+
+<%= simple_form_for([:admin, @project], url: '/admin/projects/'+@project.id.to_s, remote: true, html: { multipart: true }) do | f | %>
+    <div class='form-group'>
+        <label class='col-sm-2 form-group'><%= Project.human_attribute_name('project_categories_id') %></label>
+        <div class='col-sm-10'>
+            <%= f.input_field :project_category_id, class: 'an-form-control  numeric', readonly: readonly %>
+            <%= f.full_error :project_category_id, class: 'full_error' %>
+        </div>
+        <div class='clear'></div>
+   </div>
+
+
+    <div class='form-group'>
+        <label class='col-sm-2 form-group'><%= Project.human_attribute_name('name') %></label>
+        <div class='col-sm-10'>
+            <%= f.input_field :name, class: 'an-form-control ', readonly: readonly %>
+            <%= f.full_error :name, class: 'full_error' %>
+        </div>
+        <div class='clear'></div>
+   </div>
+
+    <div class='form-group'>
+        <label class='col-sm-2 form-group'><%= Project.human_attribute_name('status') %></label>
+        <div class='col-sm-10'>
+            <%= f.input_field :status, collection: Project.statuses_i18n, class: 'an-form-control  select2', include_blank: false, disabled: readonly %>
+            <%= f.full_error :status, class: 'full_error' %>
+        </div>
+        <div class='clear'></div>
+   </div>
+
+
+    <div class='form-group'>
+        <label class='col-sm-2 form-group'><%= Project.human_attribute_name('project_visitors_count') %></label>
+        <div class='col-sm-10'>
+            <%= f.input_field :project_visitors_count, class: 'an-form-control  numeric', readonly: readonly %>
+            <%= f.full_error :project_visitors_count, class: 'full_error' %>
+        </div>
+        <div class='clear'></div>
+   </div>
+
+    <div class='row'>
+        <div class='col-sm-12'>
+            <%= f.submit t('button.save'), class: 'btn btn-primary pull-right' unless readonly %>
+            <%= link_to t('button.back'), back_admin_projects_path, class: 'btn btn-default pull-right m-r-10' %>
+        </div>
+    </div>
+<% end %>
+
+
+
+<%= content_for :post_scripts do %>
+    <%= javascript_include_tag 'admin/projects' %>
+<% end %>

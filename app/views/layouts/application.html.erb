@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>明志科技大學創客創業平台</title>
+
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <%= stylesheet_link_tag    'application', media: 'all' %>
+        <%= javascript_include_tag 'application' %>
+    </head>
+    <body>
+
+        <%= render 'common/header' %>
+        <%= yield %>
+        <%= render 'common/footer' %>
+        <%= yield :post_scripts %>
+    </body>
+</html>

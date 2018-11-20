@@ -1,0 +1,15 @@
+
+<% if @related_resource.errors.full_messages.blank? %>
+    swal('<%= t('helpers.form.create_success', model: RelatedResource.model_name.human) %>', '', 'success')
+        .then(function(){
+            window.location.href = '<%= admin_related_resources_url(@related_resource, ignore_set_navigation: true) %>';
+        });
+<% else %>
+    $( "span.full_error" ).remove();
+
+    swal('<%= t('helpers.form.create_error', model: RelatedResource.model_name.human) %>', '<%= @related_resource.errors.full_messages.join('\n') %>', 'error');
+
+    <% @related_resource.errors.messages.each do |message| %>
+        $( "<span class='error full_error'><%= message[1].join('; ') %></span>" ).insertAfter( "#related_resource_<%= message[0].to_s %>" );
+    <% end %>
+<% end %>

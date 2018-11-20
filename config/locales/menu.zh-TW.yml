@@ -1,0 +1,17 @@
+zh-TW:
+
+  views:
+    web_content:
+      index: 首頁
+      advertising: 行銷廣告
+      business: 商業模式
+      news: 最新消息
+      member: 團隊成員
+      cession: 讓與債權
+      faq: 常見問題
+      other_description: 其他說明
+      rate_description: 資費說明
+      slide: Slide
+      article: 文案
+    headings:
+      current_time: 目前時間

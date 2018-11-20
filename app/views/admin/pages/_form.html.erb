@@ -1,0 +1,35 @@
+<% readonly = (defined? readonly) ? readonly : false -%>
+
+<%= simple_form_for([:admin, @page], url: '/admin/pages/'+@page.id.to_s, remote: true, html: { multipart: true }) do | f | %>
+    <div class='form-group'>
+        <label class='col-sm-2 form-group'><%= Page.human_attribute_name('name') %></label>
+        <div class='col-sm-10'>
+            <%= f.input_field :name, class: 'an-form-control ', readonly: readonly %>
+            <%= f.full_error :name, class: 'full_error' %>
+        </div>
+        <div class='clear'></div>
+   </div>
+
+    <div class='form-group'>
+        <label class='col-sm-2 form-group'><%= Page.human_attribute_name('desc') %></label>
+        <div class='col-sm-10'>
+            <%= f.input_field :desc, class: 'an-form-control  froala-editor', readonly: readonly %>
+            <%= f.full_error :desc, class: 'full_error' %>
+        </div>
+        <div class='clear'></div>
+   </div>
+
+    <div class='row'>
+        <div class='col-sm-12'>
+            <%= f.submit t('button.save'), class: 'btn btn-primary pull-right' unless readonly %>
+            <%= link_to t('button.back'), back_admin_pages_path, class: 'btn btn-default pull-right m-r-10' %>
+            <%= link_to t('button.back'), back_admin_pages_path, class: 'btn btn-default pull-right m-r-10' %>
+        </div>
+    </div>
+<% end %>
+
+<%= render 'common/attachments', model: @page, upload: true, destroy: true %>
+
+<%= content_for :post_scripts do %>
+    <%= javascript_include_tag 'admin/pages' %>
+<% end %>

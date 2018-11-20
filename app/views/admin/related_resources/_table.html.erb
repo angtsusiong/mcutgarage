@@ -1,0 +1,15 @@
+<div class="table-responsive">
+    <table id='<%= tab_key %>_related_resources_table' data-tab_column_name='' data-tab_key='<%= tab_key %>' class='table table-bordered table_breaking related_resources_table m-b-20'>
+        <thead>
+            <tr>
+                <th class='all'><%= RelatedResource.human_attribute_name('resources_category_id') %></th>
+                <th class='all'><%= RelatedResource.human_attribute_name('title') %></th>
+                <th class='all'><%= RelatedResource.human_attribute_name('content') %></th>
+                <th class='all'><%= RelatedResource.human_attribute_name('url') %></th>
+                <th class='all'><%= t('helpers.datatables.actions') %></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>

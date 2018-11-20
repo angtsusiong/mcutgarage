@@ -1,0 +1,71 @@
+<% readonly = (defined? readonly) ? readonly : false -%>
+
+<%= simple_form_for([:admin, @version], url: '/admin/versions/'+@version.id.to_s, remote: true, html: { multipart: true }) do | f | %>
+    <div class='form-group'>
+        <label class='col-sm-2 form-group'><%= Version.human_attribute_name('item_type') %></label>
+        <div class='col-sm-10'>
+            <%= f.input_field :item_type, class: 'an-form-control ', readonly: readonly %>
+            <%= f.full_error :item_type, class: 'full_error' %>
+        </div>
+        <div class='clear'></div>
+   </div>
+
+    <div class='form-group'>
+        <label class='col-sm-2 form-group'><%= Version.human_attribute_name('item_id') %></label>
+        <div class='col-sm-10'>
+            <%= f.input_field :item_id, class: 'an-form-control  numeric', readonly: readonly %>
+            <%= f.full_error :item_id, class: 'full_error' %>
+        </div>
+        <div class='clear'></div>
+   </div>
+
+    <div class='form-group'>
+        <label class='col-sm-2 form-group'><%= Version.human_attribute_name('event') %></label>
+        <div class='col-sm-10'>
+            <%= f.input_field :event, class: 'an-form-control ', readonly: readonly %>
+            <%= f.full_error :event, class: 'full_error' %>
+        </div>
+        <div class='clear'></div>
+   </div>
+
+    <div class='form-group'>
+        <label class='col-sm-2 form-group'><%= Version.human_attribute_name('whodunnit') %></label>
+        <div class='col-sm-10'>
+            <%= f.input_field :whodunnit, class: 'an-form-control ', readonly: readonly %>
+            <%= f.full_error :whodunnit, class: 'full_error' %>
+        </div>
+        <div class='clear'></div>
+   </div>
+
+    <div class='form-group'>
+        <label class='col-sm-2 form-group'><%= Version.human_attribute_name('object') %></label>
+        <div class='col-sm-10'>
+            <%= f.input_field :object, class: 'an-form-control  froala-editor', readonly: readonly %>
+            <%= f.full_error :object, class: 'full_error' %>
+        </div>
+        <div class='clear'></div>
+   </div>
+
+    <div class='form-group'>
+        <label class='col-sm-2 form-group'><%= Version.human_attribute_name('object_changes') %></label>
+        <div class='col-sm-10'>
+            <%= f.input_field :object_changes, class: 'an-form-control  froala-editor', readonly: readonly %>
+            <%= f.full_error :object_changes, class: 'full_error' %>
+        </div>
+        <div class='clear'></div>
+   </div>
+
+    <div class='row'>
+        <div class='col-sm-12'>
+            <%= f.submit t('button.save'), class: 'btn btn-primary pull-right' unless readonly %>
+            <%= link_to t('button.back'), back_admin_versions_path, class: 'btn btn-default pull-right m-r-10' %>
+            <%= link_to t('button.back'), back_admin_versions_path, class: 'btn btn-default pull-right m-r-10' %>
+        </div>
+    </div>
+<% end %>
+
+
+
+<%= content_for :post_scripts do %>
+    <%= javascript_include_tag 'admin/versions' %>
+<% end %>

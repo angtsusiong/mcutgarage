@@ -1,0 +1,49 @@
+// 破壞性排版
+@media (max-width:768px) {
+    .table_breaking {
+        display: block;
+
+        td::before {
+            content: attr(data-title);
+        }
+        td::before {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 30%;
+            padding-right: 10px;
+            white-space: nowrap;
+            text-align: left;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+        thead tr {
+            display: none;
+
+            // position: absolute;
+
+            // top: -9999px;
+
+            // left: -9999px;
+        }
+        tbody {
+            display: block;
+        }
+        tr {
+            display: block;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            background-color: #ffffff;
+        }
+        td {
+            display: block;
+            border: none !important;
+            border-bottom: 1px solid #eee !important;
+            position: relative;
+            padding-left: 27% !important;
+            white-space: normal;
+            text-align: left;
+        }
+    }
+}
+

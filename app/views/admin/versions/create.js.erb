@@ -1,0 +1,15 @@
+
+<% if @version.errors.full_messages.blank? %>
+    swal('<%= t('helpers.form.create_success', model: Version.model_name.human) %>', '', 'success')
+        .then(function(){
+            window.location.href = '<%= admin_versions_url(@version, ignore_set_navigation: true) %>';
+        });
+<% else %>
+    $( "span.full_error" ).remove();
+
+    swal('<%= t('helpers.form.create_error', model: Version.model_name.human) %>', '<%= @version.errors.full_messages.join('\n') %>', 'error');
+
+    <% @version.errors.messages.each do |message| %>
+        $( "<span class='error full_error'><%= message[1].join('; ') %></span>" ).insertAfter( "#version_<%= message[0].to_s %>" );
+    <% end %>
+<% end %>

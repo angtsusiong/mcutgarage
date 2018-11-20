@@ -1,0 +1,9 @@
+zh-TW:
+  enums:
+    project:
+      status:
+        draft: 草稿
+        pending: 待審核
+        examining: 審核中
+        denied: 不通過
+        passed: 審核通過

@@ -1,0 +1,58 @@
+<% readonly = (defined? readonly) ? readonly : false -%>
+
+<%= simple_form_for([:admin, @activity], url: '/admin/activities/'+@activity.id.to_s, remote: true, html: { multipart: true }) do | f | %>
+    <div class='form-group'>
+        <label class='col-sm-2 form-group'><%= Activity.human_attribute_name('name') %></label>
+        <div class='col-sm-10'>
+            <%= f.input_field :name, class: 'an-form-control ', readonly: readonly %>
+            <%= f.full_error :name, class: 'full_error' %>
+        </div>
+        <div class='clear'></div>
+   </div>
+
+    <div class='form-group'>
+        <label class='col-sm-2 form-group'><%= Activity.human_attribute_name('default') %></label>
+        <div class='col-sm-10'>
+            <%= f.input_field :default, as: :boolean, disabled: readonly %>
+            <%= f.full_error :default, class: 'full_error' %>
+        </div>
+        <div class='clear'></div>
+   </div>
+
+    <div class='form-group'>
+        <label class='col-sm-2 form-group'><%= Activity.human_attribute_name('is_active') %></label>
+        <div class='col-sm-10'>
+            <%= f.input_field :is_active, as: :boolean, disabled: readonly %>
+            <%= f.full_error :is_active, class: 'full_error' %>
+        </div>
+        <div class='clear'></div>
+   </div>
+
+   <div class='form-group'>
+       <label class='col-sm-2 form-group'><%= Activity.human_attribute_name('step') %></label>
+       <div class='col-sm-10'>
+           <div id='requirements'>
+               <%= f.simple_fields_for :activities_steps do |act| %>
+                   <%= render 'activities_step_fields', :f => act %>
+               <% end %>
+               <div class='links'>
+                   <%= link_to_add_association 'add step', f, :activities_steps %>
+               </div>
+           </div>
+       </div>
+       <div class='clear'></div>
+   </div>
+
+    <div class='row'>
+        <div class='col-sm-12'>
+            <%= f.submit t('button.save'), class: 'btn btn-primary pull-right' unless readonly %>
+            <%= link_to t('button.back'), back_admin_activities_path, class: 'btn btn-default pull-right m-r-10' %>
+        </div>
+    </div>
+<% end %>
+
+
+
+<%= content_for :post_scripts do %>
+    <%= javascript_include_tag 'admin/activities' %>
+<% end %>

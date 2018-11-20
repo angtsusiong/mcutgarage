@@ -1,0 +1,12 @@
+
+<% if @project.errors.full_messages.blank? %>
+    swal('<%= t('helpers.form.destroy_success', model: Project.model_name.human) %>', '', 'success');
+<% else %>
+    $( "span.full_error" ).remove();
+
+    swal('<%= t('helpers.form.destroy_error', model: Project.model_name.human) %>', '<%= @project.errors.full_messages.join('\n') %>', 'error');
+
+     <% @project.errors.messages.each do |message| %>
+        $( "<span class='error full_error'><%= message[1].join('; ') %></span>" ).insertAfter( "#project_<%= message[0].to_s %>" );
+    <% end %>
+<% end %>

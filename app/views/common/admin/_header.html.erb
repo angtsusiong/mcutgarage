@@ -1,0 +1,33 @@
+<header class="an-header wow fadeInDown" style="visibility: visible; animation-name: fadeInDown;">
+    <div class="an-topbar-left-part">
+        <h3 class="an-logo-heading">
+            <a class="an-logo-link" href="/admin">
+                明志創客創業基地<span>後台管理</span>
+            </a>
+        </h3>
+        <button class="an-btn an-btn-icon toggle-button js-toggle-sidebar">
+            <i class="fa fa-bars"></i>
+        </button>
+    </div> <!-- end .AN-TOPBAR-LEFT-PART -->
+
+    <div class="an-topbar-right-part">
+        <div class="an-profile-settings">
+            <div class="btn-group an-notifications-dropown profile">
+                <button type="button" class="an-btn an-btn-icon dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="an-profile-img"></span>
+                    <span class="an-user-name"><%= current_user.name if current_user %></span>
+                    <span class="an-arrow-nav"><i class="fa fa-arrow-circle-o-down"></i></span>
+                </button>
+                <div class="dropdown-menu">
+                    <p class="an-info-count">我的帳號</p>
+                    <ul class="an-profile-list">
+                        <li>
+                            <%= link_to "<i class='fa fa-sign-out'></i>登出".html_safe, destroy_user_session_path, method: :delete %>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div> <!-- end .AN-PROFILE-SETTINGS -->
+    </div> <!-- end .AN-TOPBAR-RIGHT-PART -->
+
+</header>

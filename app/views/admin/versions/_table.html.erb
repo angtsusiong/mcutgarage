@@ -1,0 +1,17 @@
+<div class="table-responsive">
+    <table id='<%= tab_key %>_versions_table' data-tab_column_name='' data-tab_key='<%= tab_key %>' class='table table-bordered table_breaking versions_table m-b-20'>
+        <thead>
+            <tr>
+                <th class='all'><%= Version.human_attribute_name('item_type') %></th>
+                <th class='all'><%= Version.human_attribute_name('item_id') %></th>
+                <th class='all'><%= Version.human_attribute_name('event') %></th>
+                <th class='all'><%= Version.human_attribute_name('whodunnit') %></th>
+                <th class='all'><%= Version.human_attribute_name('object') %></th>
+                <th class='all'><%= Version.human_attribute_name('object_changes') %></th>
+                <th class='all'><%= t('helpers.datatables.actions') %></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>

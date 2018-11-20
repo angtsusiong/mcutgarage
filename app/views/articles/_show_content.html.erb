@@ -1,0 +1,26 @@
+            <div class="an-bootstrap-custom-tab">
+                <div class="an-tab-control">
+                    <ul class="nav nav-tabs text-left" role="tablist">
+                        <% @tabs.each_with_index do |tab, index| %>
+                            <li role='presentation' class='<%= 'active' if index == 0 %>'>
+                                <a href='<%= change_show_tab_article_path(tab: tab[:name]) %>' aria-controls='<%= tab[:name] %>_tab' role='tab' data-toggle='' data-remote='true' class='<%= tab[:name] %>_tab'>
+                                    <i class="ion-happy-outline"></i>
+                                    <%= t "labels.article.#{tab[:name]}_info" %>
+                                </a>
+                            </li>
+                        <% end %>
+                    </ul>
+                </div>
+
+                <div class="tab-content">
+                    <% @tabs.each_with_index do |tab, index| %>
+                        <div role='tabpanel' class='tab-pane fade in <%= 'active' if index == 0 %>' id='<%= tab[:name] %>_tabpanel'>
+                            <%= render "articles/tabs/#{tab[:name]}_tab", article: @article if index == 0 %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+
+<%= hidden_field_tag 'article_id', @article.id %>
+<%= hidden_field_tag 'master_show_tab', params[:master_show_tab] %> <%# 讓從網址列可以連到此show頁面並切換頁籤 %>
+

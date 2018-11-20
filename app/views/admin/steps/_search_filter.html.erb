@@ -1,0 +1,111 @@
+<div class="panel panel-default an-sidebar-search filter-condition-panel">
+
+        <div class="panel-heading" role="tab">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" href="#steps_search_panel" data-toggle="collapse" 
+                    data-parent="#accordion" aria-expanded="false" aria-controls="steps_search_panel">
+            <%= t('helpers.form.search_filter_block') %>
+                </a>
+            </h4>
+        </div>
+
+        <div id="steps_search_panel" class="panel-collapse collapse" role="search panel">
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label class='control-label'><%= t('helpers.form.keyword_search_label') %></label>
+                    </div>
+                    <div class="col-sm-10">
+                        <input type='text' id='keyword_search' placeholder="<%= t('helpers.form.keyword_search') %>"
+                                                               class='an-form-control no-redius border-bottom m-0 text_color'>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+    
+                <div class='form-group'>
+                    <div class="col-sm-2">
+                        <label class='control-label'><%= Step.human_attribute_name('name') %></label>
+                    </div>
+                    <div class='col-sm-10'>
+                        <input type='text' name='name' placeholder='<%= t('helpers.form.placeholder', column: Step.human_attribute_name('name')) %>'
+                            class='an-form-control no-redius border-bottom m-0 text_color filter-name filter-condition'>
+                    </div>
+                    <div class='clear'></div>
+                </div>
+
+
+                <div class='form-group'>
+                    <div class="col-sm-2">
+                        <label class='control-label'><%= Step.human_attribute_name('desc') %></label>
+                    </div>
+                    <div class='col-sm-10'>
+                        <input type='text' name='desc' placeholder='<%= t('helpers.form.placeholder', column: Step.human_attribute_name('desc')) %>'
+                            class='an-form-control no-redius border-bottom m-0 text_color filter-desc filter-condition'>
+                    </div>
+                    <div class='clear'></div>
+                </div>
+
+
+    
+                <div class='form-group'>
+                    <label class='col-sm-2 control-label'><%= Step.human_attribute_name('project_id') %></label>
+                    <div class='col-sm-10'>
+                        <div class='col-sm-5 no-padding'>
+                            <div class='col-sm-12 no-padding'>
+                                <input type='number' name='project_id_start' placeholder='<%= t('helpers.form.start_number') %>'
+                                       class='an-form-control no-redius border-bottom m-0 text_color filter-project_id filter-range-condition'>
+                            </div>
+                        </div>
+                        <div class='col-sm-1 no-padding t-center'> ~ </div>
+                        <div class='col-sm-6 no-padding'>
+                            <div class='col-sm-12 no-padding'>
+                                <input type='number' name='project_id_end' placeholder='<%= t('helpers.form.end_number') %>'
+                                       class='an-form-control no-redius border-bottom m-0 text_color filter-project_id filter-range-condition'>
+                            </div>
+                        </div>
+                        <div class='clear'></div>
+                    </div>
+                    <div class='clear'></div>
+                </div>
+
+
+                <div class='form-group'>
+                    <label class='col-sm-2 control-label'><%= Step.human_attribute_name('priority') %></label>
+                    <div class='col-sm-10'>
+                        <div class='col-sm-5 no-padding'>
+                            <div class='col-sm-12 no-padding'>
+                                <input type='number' name='priority_start' placeholder='<%= t('helpers.form.start_number') %>'
+                                       class='an-form-control no-redius border-bottom m-0 text_color filter-priority filter-range-condition'>
+                            </div>
+                        </div>
+                        <div class='col-sm-1 no-padding t-center'> ~ </div>
+                        <div class='col-sm-6 no-padding'>
+                            <div class='col-sm-12 no-padding'>
+                                <input type='number' name='priority_end' placeholder='<%= t('helpers.form.end_number') %>'
+                                       class='an-form-control no-redius border-bottom m-0 text_color filter-priority filter-range-condition'>
+                            </div>
+                        </div>
+                        <div class='clear'></div>
+                    </div>
+                    <div class='clear'></div>
+                </div>
+
+
+                <div class="form-group pull-right">
+                    <div class="col-sm-12">
+                        <button class="btn btn-default reset-button">
+                            <%= t('button.reset') %>
+                        </button>
+                        <button class="btn btn-info filter-button">
+                            <%= t('button.filter') %>
+                        </button>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+            </div>
+        </div>
+
+</div>

@@ -1,0 +1,14 @@
+<div class="table-responsive">
+    <table id='<%= tab_key %>_activities_table' data-tab_column_name='' data-tab_key='<%= tab_key %>' class='table table-bordered table_breaking activities_table m-b-20'>
+        <thead>
+            <tr>
+                <th class='all'><%= Activity.human_attribute_name('name') %></th>
+                <th class='all'><%= Activity.human_attribute_name('default') %></th>
+                <th class='all'><%= Activity.human_attribute_name('is_active') %></th>
+                <th class='all'><%= t('helpers.datatables.actions') %></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>

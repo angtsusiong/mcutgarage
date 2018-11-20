@@ -1,0 +1,8 @@
+<%= render 'admin/slides/form', readonly: true %>
+
+<%= render 'common/attachments', model: @slide, upload: false, destroy: false %>
+
+<%= content_for :post_scripts do %>
+    <%= javascript_include_tag 'admin/slides' %>
+<% end %>
+

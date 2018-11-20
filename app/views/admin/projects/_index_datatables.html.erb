@@ -1,0 +1,33 @@
+<% master_show_tab = (defined? master_show_tab) ? master_show_tab : '' -%>
+
+<div class="panel">
+
+    <div class="panel-heading">
+        <div class="panel-heading-caption">
+        </div>
+        <div class="panel-heading-tools">
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="search_wrapper">
+            <%= render 'admin/projects/search_filter' %>
+        </div>
+
+        <div class="an-helper-block">
+            <%= link_to t('button.new', model: Project.model_name.human),
+                new_admin_project_path(
+                    master_show_tab: master_show_tab,
+                ), 
+                class: 'btn btn-primary m-b-10' %>
+        </div>
+
+        <div class="an-bootstrap-custom-tab">
+            <div class="an-tab-control">
+                <%= render 'admin/projects/table', tab_key: 'all' %>
+            </div>
+        </div>
+
+    </div>
+
+</div>

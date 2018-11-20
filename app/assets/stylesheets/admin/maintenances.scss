@@ -1,0 +1,27 @@
+.maintenanceMessage {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.feedbackRating {
+  border: black;
+  border-width: 1px;
+  border-style: solid;
+  padding: 10px;
+  text-align: center;
+  background: #80808094;
+}
+
+.spaceCreated {
+  margin: 15px;
+}
+
+.maintenancePending {
+  color: blue;
+}
+
+.maintenanceProcessing {
+  color: red;
+}
