@@ -199,5 +199,8 @@ site-install-rb: install-rb
 
 ###
 
+RELEASE_VERSION = `/usr/bin/env git describe --abbrev=0`
+
 build:
-	docker build -t mcut-garage -f docker/Dockerfile .
+	docker build -t registry.larvata.tw/mcut-garage -f docker/Dockerfile .
+	docker push registry.larvata.tw/mcut-garage
