@@ -30,6 +30,7 @@ rerun.txt
 *.tar
 *.gz
 *.orig
+*.tags*
 
 .#*
 *.#
@@ -43,3 +44,8 @@ node_modules/
 node_modules/*
 node_modules/.yarn-integrity
 !/node_modules/.yarn-integrity
+/public/packs
+/public/packs-test
+/node_modules
+yarn-debug.log*
+.yarn-integrity

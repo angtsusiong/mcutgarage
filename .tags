@@ -1,5 +1,0 @@
-toFloat	/Users/AngTsusiong/Documents/Larvata/Rails/mcut-2018-garage/app/assets/javascripts/admin.js	/^var toFloat = function(value, precision){$/;"	function	line:40
-toFloat	/Users/AngTsusiong/Documents/Larvata/Rails/mcut-2018-garage/app/assets/javascripts/admin.js	/^var toFloat = function(value, precision){$/;"	function	line:40
-beforeSend	/Users/AngTsusiong/Documents/Larvata/Rails/mcut-2018-garage/app/assets/javascripts/admin.js	/^        beforeSend: function() {$/;"	function	line:60
-complete	/Users/AngTsusiong/Documents/Larvata/Rails/mcut-2018-garage/app/assets/javascripts/admin.js	/^        complete: function(xhr, stat) {$/;"	function	line:63
-error	/Users/AngTsusiong/Documents/Larvata/Rails/mcut-2018-garage/app/assets/javascripts/admin.js	/^        error: function(xhr, stat) {$/;"	function	line:66
