@@ -28,7 +28,7 @@ jobs:
           command: |
             echo $REGISTRY_PASSWORD | docker login $REGISTRY_HOST -u $REGISTRY_USER --password-stdin
             source /tmp/shared/env
-            docker build -t $FULL_DOCKER_IMAGE_NAME .
+            docker build -t $FULL_DOCKER_IMAGE_NAME -f docker/Dockerfile .
             docker push $FULL_DOCKER_IMAGE_NAME
       - persist_to_workspace:
           root: /tmp/shared
