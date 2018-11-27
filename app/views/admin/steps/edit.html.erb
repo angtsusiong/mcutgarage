@@ -22,3 +22,37 @@
         </div>
     </div>
 </div>
+
+<div class="panel">
+    <div class="panel-heading">
+        <div class="m-portlet__head-caption"><h3 class="m-portlet__head-text">
+            Dragula test
+        </h3></div>
+        <div class="m-portlet__head-tools">
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="parent" >
+            <div class="wrapper" >
+                <div id='left-defaults' class='container'>
+                    <div class>You can move these elements between these two containers</div>
+                    <div class>Moving them anywhere else isn't quite possible</div>
+                    <div class>Anything can be moved around. That includes images, <a href='https://github.com/bevacqua/dragula'>links</a>
+                    </div>
+                </div>
+                <div id='right-defaults' class='container'>
+                    <div class>There's also the possibility of moving elements around in the same container, changing their position</div>
+                    <div class>This is the default use case. You only need to specify the containers you want to use</div>
+                    <div class>More interactive use cases lie ahead</div>
+                    <div class>Moving <code>&lt;input/&gt;</code> elements works just fine. You can still focus them, too. <input placeholder='See?' /></div>
+                    <div class>Make sure to check out the <a href='https://github.com/bevacqua/dragula#readme'>documentation on GitHub!</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%= content_for :post_scripts do %>
+    <%= javascript_include_tag 'admin/steps_drag' %>
+<% end %>

@@ -25,12 +25,12 @@
 
 //= require common/modals
 //= require common/attachments
-//= require dist/dragula.min
 //= require jquery-ui
-
+//= require decimal.js/decimal
 //= require photoswipe
 //= require photoswipe_init
 
+//= require dragula/dist/dragula
 
 // 轉浮點數
 var toFloat = function(value, precision){

@@ -1,5 +1,5 @@
 <% readonly = (defined? readonly) ? readonly : false -%>
-
+<%= stylesheet_link_tag 'admin/steps_drag', media: 'all' %>
 <%= simple_form_for([:admin, @step], url: '/admin/steps/'+@step.id.to_s, remote: true, html: { multipart: true }) do | f | %>
 
     <div class='form-group'>
@@ -9,7 +9,7 @@
             <%= f.full_error :name, class: 'full_error' %>
         </div>
         <div class='clear'></div>
-   </div>
+    </div>
 
     <div class='form-group'>
         <label class='col-sm-2 form-group'><%= Step.human_attribute_name('desc') %></label>
@@ -18,22 +18,24 @@
             <%= f.full_error :desc, class: 'full_error' %>
         </div>
         <div class='clear'></div>
-   </div>
+    </div>
 
-   <div class='form-group'>
-       <label class='col-sm-2 form-group'><%= Step.human_attribute_name('requirement') %></label>
-       <div class='col-sm-10'>
-           <div id='requirements'>
-           <%= f.simple_fields_for :requirements_steps do |req| %>
-               <%= render 'requirements_step_fields', :f => req %>
-               <% end %>
-               <div class='links'>
-                   <%= link_to_add_association 'add requirement', f, :requirements_steps %>
-               </div>
-           </div>
-       </div>
-       <div class='clear'></div>
-   </div>
+    <div class='form-group'>
+        <label class='col-sm-2 form-group'><%= Step.human_attribute_name('requirement') %></label>
+        <div class='col-sm-10'>
+            <div id='requirements'>
+                <div class="drag-area col-sm-8 container" id="area" >
+                <%= f.simple_fields_for :requirements_steps do |req| %>
+                    <%= render 'requirements_step_fields', :f => req %>
+                <% end %>
+                <div id="add-item" >
+                <%= link_to_add_association 'add', f, :requirements_steps %>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class='clear'></div>
+    </div>
 
     <div class='row'>
         <div class='col-sm-12'>

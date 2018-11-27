@@ -3,10 +3,10 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
+    "crossvent": "^1.5.5",
+    "decimal.js": "^10.0.1",
     "dragula": "^3.7.2",
-    "jquery": "^3.3.1",
-    "ng2-dragula": "^2.1.1",
-    "tslint-sonarts": "^1.8.0"
+    "jquery": "^3.3.1"
   },
   "devDependencies": {
     "eslint": "^5.9.0",
@@ -15,7 +15,6 @@
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "tslint-consistent-codestyle": "^1.14.1",
     "webpack-dev-server": "2.11.2"
   }
 }

@@ -1,0 +1,83 @@
+@import 'font-awesome';
+
+.drag-area {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+.drag-item{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-top: 1em;
+  padding-left: 2em;
+  padding-bottom: 1em;
+  padding-right: 2em;
+  height: 5em;
+  border: solid;
+}
+
+.container > div,
+.gu-mirror {
+  transition: opacity 0.4s ease-in-out;
+}
+.container > div {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+.gu-mirror {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+
+.panel-title {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 0.5em;
+}
+.panel {
+  margin-bottom: 4em;
+  margin-top: 1em;
+ }
+.tab-control{
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 1em;
+  margin-right: 2em;
+}
+
+.req-unit{
+  margin-top: 2em;
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+.req-name{
+  font-size: 18px;
+  margin-left: 1em;
+}
+
+.req-text{
+  font-size: 14px;
+  padding-left: 4em;
+  padding-top: 3em;
+  padding-bottom: 1em;
+}
+.req-pic{
+  font-size: 14px;
+  padding-left: 4em;
+  padding-top: 3em;
+  padding-bottom: 1em;
+}
+.req-video{
+  font-size: 14px;
+  padding-left: 4em;
+  padding-top: 3em;
+  padding-bottom: 1em;
+}
