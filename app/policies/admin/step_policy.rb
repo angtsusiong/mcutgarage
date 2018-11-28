@@ -31,6 +31,10 @@ class Admin::StepPolicy < AdminPolicy
     common_permission
   end
 
+  def update_drag?
+    common_permission
+  end
+
   def change_show_tab?
     common_permission
   end

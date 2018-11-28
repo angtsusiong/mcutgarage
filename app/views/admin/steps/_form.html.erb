@@ -25,11 +25,11 @@
         <div class='col-sm-10'>
             <div id='requirements'>
                 <div class="drag-area col-sm-8 container" id="area" >
-                <%= f.simple_fields_for :requirements_steps do |req| %>
+                <%= f.simple_fields_for :requirements_steps, remote: true do |req| %>
                     <%= render 'requirements_step_fields', :f => req %>
                 <% end %>
                 <div id="add-item" >
-                <%= link_to_add_association 'add', f, :requirements_steps %>
+                    <%= link_to_add_association 'add', f, :requirements_steps, class: 'btn btn-success m-l-10' %>
                 </div>
                 </div>
             </div>
@@ -38,13 +38,14 @@
     </div>
 
     <div class='row'>
-        <div class='col-sm-12'>
+        <div class='col-sm-5'>
             <%= f.submit t('button.save'), class: 'btn btn-primary pull-right' unless readonly %>
             <%= link_to t('button.back'), back_admin_steps_path, class: 'btn btn-default pull-right m-r-10' %>
         </div>
     </div>
 <% end %>
 
+<%= hidden_field_tag 'step_id', @step.id %>
 <%= content_for :post_scripts do %>
     <%= javascript_include_tag 'admin/steps' %>
 <% end %>

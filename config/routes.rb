@@ -43,6 +43,7 @@ Rails.application.routes.draw do
         member do
           get :change_show_tab
             get :render_tab_content
+            patch :update_drag
             end
       collection do
           post :datatables
@@ -69,7 +70,7 @@ Rails.application.routes.draw do
       resources :pages do
         member do
           get :change_show_tab
-            get :render_tab_content
+          get :render_tab_content
             end
       collection do
           post :datatables

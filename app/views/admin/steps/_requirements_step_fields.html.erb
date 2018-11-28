@@ -1,10 +1,13 @@
 <div class='nested-fields col-md-12'>
     <div class="drag-item ">
-        <div class="col-md-8">
-  <%= f.input_field :requirement_id, collection: Requirement.all, class: 'an-form-control  select2', include_blank: false %>
+        <div class="col-md-7">
+            <%= f.input_field :requirement_id, collection: Requirement.all, class: 'an-form-control  select2', include_blank: false %>
         </div>
-        <div class="col-md-4" >
-  <%= link_to_remove_association "remove", f %>
+        <div class="col-md-3 drag-item-priority" >
+            <%= f.input_field :priority, class: 'an-form-control ', include_blank: false %>
+        </div>
+        <div class="col-md-2" >
+            <%= link_to_remove_association "remove", f, class: 'btn btn-danger' %>
         </div>
     </div>
 </div>

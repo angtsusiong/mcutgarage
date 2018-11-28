@@ -2,7 +2,7 @@
 class Admin::StepsController < ApplicationController
   layout "admin"
 
-  before_action :set_step, only: [:show, :edit, :update, :destroy, :change_show_tab, :render_tab_content]
+  before_action :set_step, only: [:show, :edit, :update, :destroy, :change_show_tab, :render_tab_content, :update_drag]
   before_action :set_navigation, only: [:new, :edit, :show, :destroy]
   before_action :class_authorize, only: [:index, :new, :create]
   before_action :set_paper_trail_whodunnit
@@ -70,7 +70,6 @@ class Admin::StepsController < ApplicationController
   end
 
   def edit
-
   end
 
   def show
@@ -125,6 +124,15 @@ class Admin::StepsController < ApplicationController
     end
   end
 
+  def update_drag
+    @step.requirements_steps.update(step_drag_params)
+    params[:priority]
+      respond_to do |format|
+        format.js{}
+      end
+  end
+
+
   # 設定連結所屬明細頁籤
   def tabs
     tabs_array = []
@@ -168,6 +176,10 @@ class Admin::StepsController < ApplicationController
 
   def step_params
     params.require(:step).permit(:activity_id, :name, :priority, :desc, requirements_steps_attributes: [:id, :requirement_id, :priority, :_destroy])
+  end
+
+  def step_drag_params
+    params.permit(:id, :priority)
   end
 
   def step_row_params(column_values)
