@@ -29,25 +29,21 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 # Run Bundle in a cache efficient way
 SHELL [ "/bin/bash", "-l", "-c" ]
 
-COPY Gemfile* /tmp/
-COPY package-lock.json /tmp/
-COPY package.json /tmp/
-WORKDIR /tmp
-RUN gem install bundler
-RUN bundle
 # RUN apt clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Prepare for Nginx
 COPY . /home/app/rails
 WORKDIR /home/app/rails
 
-# RUN bundle exec rake assets:precompile
 RUN chown app:app /home/app/rails/ -R
+RUN gem install bundler
+RUN bundle
+# RUN bundle exec rake assets:precompile
 RUN npm install -g yarn
 SHELL [ "/bin/bash", "-l", "-c" ]
 RUN yarn
-RUN RAILS_ENV=development bundle exec rails assets:precompile
-RUN RAILS_ENV=development bundle exec rails webpacker:compile
+# RUN RAILS_ENV=development bundle exec rails assets:precompile
+# RUN RAILS_ENV=development bundle exec rails webpacker:compile
 
 # Start Nginx / Passenger
 RUN rm -f /etc/service/nginx/down
