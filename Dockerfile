@@ -42,9 +42,9 @@ RUN bundle
 RUN npm install -g yarn
 SHELL [ "/bin/bash", "-l", "-c" ]
 RUN yarn
-# RUN RAILS_ENV=development bundle exec rails assets:precompile
-# RUN RAILS_ENV=development bundle exec rails webpacker:compile
-
+RUN RAILS_ENV=development bundle exec rails assets:precompile
+RUN RAILS_ENV=development bundle exec rails webpacker:compile
+RUN chmod 777 /home/app/rails/tmp/cache/ -R
 # Start Nginx / Passenger
 RUN rm -f /etc/service/nginx/down
 
