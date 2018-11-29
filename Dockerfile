@@ -21,10 +21,10 @@ COPY config/nginx.env.conf /etc/nginx/main.d/nginx.env.conf
 RUN rm /etc/nginx/sites-enabled/default
 
 # Use baseimage-docker's init process.
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y vim imagemagick build-essential yarn
-
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+    apt-get update && \
+    apt-get install -y tzdata imagemagick yarn
 
 # Run Bundle in a cache efficient way
 SHELL [ "/bin/bash", "-l", "-c" ]
@@ -33,8 +33,7 @@ COPY Gemfile* /tmp/
 COPY package-lock.json /tmp/
 COPY package.json /tmp/
 WORKDIR /tmp
-RUN rvm install "ruby-2.5.1"
-RUN rvm --default use 2.5.1 && gem install bundler
+RUN gem install bundler
 RUN bundle
 # RUN apt clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -47,7 +46,6 @@ RUN chown app:app /home/app/rails/ -R
 RUN npm install -g yarn
 SHELL [ "/bin/bash", "-l", "-c" ]
 RUN yarn
-RUN yarn install
 RUN RAILS_ENV=development bundle exec rails assets:precompile
 RUN RAILS_ENV=development bundle exec rails webpacker:compile
 
